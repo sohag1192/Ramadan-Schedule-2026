@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সিরাজগঞ্জ সাহরী-ইফতারের সময়সূচি ২০২৬</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-cyan: #e0f7fa;
+            --header-blue: #0277bd;
+            --arch-yellow: #ffecb3;
+            --text-dark: #212121;
+            --rahmat-green: #4caf50;
+            --maghfirat-blue: #3f51b5;
+            --najat-pink: #9c27b0;
+            --border-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f0f4f8;
+            color: var(--text-dark);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- Download Button Styling --- */
+        .download-btn {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+            margin-bottom: 20px;
+            font-family: 'Hind Siliguri', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* --- Main Poster Container --- */
+        .poster-container {
+            background-color: var(--bg-cyan);
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 2px solid #b2ebf2;
+        }
+
+        /* --- Header Section --- */
+        .poster-header {
+            background-color: var(--header-blue);
+            padding: 20px 20px 0 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .arch-design {
+            background-color: var(--arch-yellow);
+            border-radius: 50% 50% 0 0 / 100px 100px 0 0;
+            padding: 30px 20px 20px 20px;
+            margin-top: 20px;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .district-title {
+            font-size: 24px;
+            color: #d32f2f;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .hijri-date {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1b5e20;
+        }
+
+        /* --- Main Content Area --- */
+        .content-area {
+            padding: 20px;
+        }
+
+        .top-tables {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* --- Table Styling --- */
+        .table-wrapper {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-badge {
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+            padding: 6px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: -15px auto 10px auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .badge-green { background-color: var(--rahmat-green); }
+        .badge-blue { background-color: var(--maghfirat-blue); }
+        .badge-pink { background-color: var(--najat-pink); }
+
+        .table-container {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 6px 4px;
+            text-align: center;
+        }
+
+        th {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .th-green { background-color: var(--header-blue); }
+        .th-blue { background-color: var(--header-blue); }
+
+        .row-cyan { background-color: #e0f2f1; }
+        .row-yellow { background-color: #fff9c4; }
+
+        /* --- Sidebar/Info Boxes --- */
+        .info-box {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .info-title {
+            color: #d32f2f;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .info-text {
+            text-align: justify;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .arabic-text {
+            font-weight: 600;
+            text-align: center;
+            color: #0d47a1;
+        }
+
+        /* --- Footer --- */
+        .poster-footer {
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-top: 2px solid var(--rahmat-green);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .if-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1b5e20;
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 850px) {
+            .top-tables { flex-direction: column; }
+            .bottom-section { grid-template-columns: 1fr; }
+            .arch-design { border-radius: 20px 20px 0 0; }
+            .poster-footer { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<button id="download-btn" class="download-btn">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+    </svg>
+    পিডিএফ ডাউনলোড করুন
+</button>
+
+<div class="poster-container" id="poster-to-download">
+    <div class="poster-header">
+        <div class="arch-design">
+            <div class="main-title">সাহ্‌রি-ইফতারের সময়সূচি</div>
+            <div class="district-title">সিরাজগঞ্জ জেলার জন্য প্রযোজ্য</div>
+            <div class="hijri-date">পবিত্র রমযান ১৪৪৭ হিজরি, ১৪৩২ বঙ্গাব্দ, ২০২৬ খ্রিস্টাব্দ</div>
+        </div>
+    </div>
+
+    <div class="content-area">
+        
+        <div class="top-tables">
+            <div class="table-container" style="flex: 1;">
+                <div class="table-badge badge-green">রহমতের ১০ দিন</div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr class="th-green">
+                                <th>রমযান</th><th>তারিখ</th><th>বার</th><th>সাহ্‌রির<br>শেষ সময়</th><th>ফজরের<br>আযান</th><th>ইফতারের<br>সময়</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-cyan"><td>*০১</td><td>১৯ ফেব্রু</td><td>বৃহস্পতি</td><td>৫:১৫</td><td>৫:১৮</td><td>৬:০০</td></tr>
+                            <tr class="row-cyan"><td>০২</td><td>২০ ফেব্রু</td><td>শুক্র</td><td>৫:১৪</td><td>৫:১৮</td><td>৬:০১</td></tr>
+                            <tr class="row-cyan"><td>০৩</td><td>২১ ফেব্রু</td><td>শনি</td><td>৫:১৩</td><td>৫:১৭</td><td>৬:০১</td></tr>
+                            <tr class="row-cyan"><td>০৪</td><td>২২ ফেব্রু</td><td>রবি</td><td>৫:১৩</td><td>৫:১৬</td><td>৬:০২</td></tr>
+                            <tr class="row-cyan"><td>০৫</td><td>২৩ ফেব্রু</td><td>সোম</td><td>৫:১২</td><td>৫:১৫</td><td>৬:০২</td></tr>
+                            <tr class="row-cyan"><td>০৬</td><td>২৪ ফেব্রু</td><td>মঙ্গল</td><td>৫:১১</td><td>৫:১৫</td><td>৬:০৩</td></tr>
+                            <tr class="row-cyan"><td>০৭</td><td>২৫ ফেব্রু</td><td>বুধ</td><td>৫:১১</td><td>৫:১৪</td><td>৬:০৪</td></tr>
+                            <tr class="row-cyan"><td>০৮</td><td>২৬ ফেব্রু</td><td>বৃহস্পতি</td><td>৫:১০</td><td>৫:১৩</td><td>৬:০৪</td></tr>
+                            <tr class="row-cyan"><td>০৯</td><td>২৭ ফেব্রু</td><td>শুক্র</td><td>৫:০৯</td><td>৫:১২</td><td>৬:০৫</td></tr>
+                            <tr class="row-cyan"><td>১০</td><td>২৮ ফেব্রু</td><td>শনি</td><td>৫:০৮</td><td>৫:১১</td><td>৬:০৫</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table-container" style="flex: 1;">
+                <div class="table-badge badge-blue">মাগফিরাতের ১০ দিন</div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr class="th-blue">
+                                <th>রমযান</th><th>তারিখ</th><th>বার</th><th>সাহ্‌রির<br>শেষ সময়</th><th>ফজরের<br>আযান</th><th>ইফতারের<br>সময়</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-yellow"><td>১১</td><td>০১ মার্চ</td><td>রবি</td><td>৫:০৭</td><td>৫:১১</td><td>৬:০৬</td></tr>
+                            <tr class="row-yellow"><td>১২</td><td>০২ মার্চ</td><td>সোম</td><td>৫:০৬</td><td>৫:১০</td><td>৬:০৬</td></tr>
+                            <tr class="row-yellow"><td>১৩</td><td>০৩ মার্চ</td><td>মঙ্গল</td><td>৫:০৬</td><td>৫:০৯</td><td>৬:০৭</td></tr>
+                            <tr class="row-yellow"><td>১৪</td><td>০৪ মার্চ</td><td>বুধ</td><td>৫:০৫</td><td>৫:০৮</td><td>৬:০৭</td></tr>
+                            <tr class="row-yellow"><td>১৫</td><td>০৫ মার্চ</td><td>বৃহস্পতি</td><td>৫:০৪</td><td>৫:০৭</td><td>৬:০৮</td></tr>
+                            <tr class="row-yellow"><td>১৬</td><td>০৬ মার্চ</td><td>শুক্র</td><td>৫:০৩</td><td>৫:০৬</td><td>৬:০৮</td></tr>
+                            <tr class="row-yellow"><td>১৭</td><td>০৭ মার্চ</td><td>শনি</td><td>৫:০২</td><td>৫:০৫</td><td>৬:০৯</td></tr>
+                            <tr class="row-yellow"><td>১৮</td><td>০৮ মার্চ</td><td>রবি</td><td>৫:০১</td><td>৫:০৪</td><td>৬:০৯</td></tr>
+                            <tr class="row-yellow"><td>১৯</td><td>০৯ মার্চ</td><td>সোম</td><td>৫:০০</td><td>৫:০৩</td><td>৬:০৯</td></tr>
+                            <tr class="row-yellow"><td>২০</td><td>১০ মার্চ</td><td>মঙ্গল</td><td>৪:৫৯</td><td>৫:০২</td><td>৬:১০</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="info-box">
+                <div style="font-size: 12px; margin-bottom: 5px;">* ১ রমজান চাঁদ দেখার উপর নির্ভরশীল।</div>
+                <div class="info-title">যাকাত</div>
+                <div class="info-text">
+                    "সরকারি যাকাত ফান্ডে যাকাতের অর্থ জমা দিন, দারিদ্র বিমোচনে অংশ নিন।" সরকারি যাকাত ফান্ড কালেকশন শিরোনামে হিসাব নম্বর-
+                    <br><br>
+                    <strong>৪২১৫২০০০৫৫৯১ সোনালী ব্যাংক পিএলসি</strong>, সিরাজগঞ্জ শাখায় সরাসরি বা অনলাইনে যাকাতের অর্থ জমা প্রদান করা যায়।
+                </div>
+                <div style="text-align: center; color: red; font-weight: bold; border-top: 1px dashed #ccc; padding-top: 10px;">
+                    সরকারি যাকাত ফান্ডে জমাকৃত অর্থ আয়করমুক্ত
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-badge badge-pink">নাজাতের ১০ দিন</div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr class="th-blue">
+                                <th>রমযান</th><th>তারিখ</th><th>বার</th><th>সাহ্‌রির<br>শেষ সময়</th><th>ফজরের<br>আযান</th><th>ইফতারের<br>সময়</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-cyan"><td>২১</td><td>১১ মার্চ</td><td>বুধ</td><td>৪:৫৮</td><td>৫:০১</td><td>৬:১০</td></tr>
+                            <tr class="row-cyan"><td>২২</td><td>১২ মার্চ</td><td>বৃহস্পতি</td><td>৪:৫৭</td><td>৫:০০</td><td>৬:১১</td></tr>
+                            <tr class="row-cyan"><td>২৩</td><td>১৩ মার্চ</td><td>শুক্র</td><td>৪:৫৬</td><td>৪:৫৯</td><td>৬:১১</td></tr>
+                            <tr class="row-cyan"><td>২৪</td><td>১৪ মার্চ</td><td>শনি</td><td>৪:৫৫</td><td>৪:৫৮</td><td>৬:১২</td></tr>
+                            <tr class="row-cyan"><td>২৫</td><td>১৫ মার্চ</td><td>রবি</td><td>৪:৫৪</td><td>৪:৫৭</td><td>৬:১২</td></tr>
+                            <tr class="row-cyan"><td>২৬</td><td>১৬ মার্চ</td><td>সোম</td><td>৪:৫৩</td><td>৪:৫৬</td><td>৬:১৩</td></tr>
+                            <tr class="row-cyan"><td>২৭</td><td>১৭ মার্চ</td><td>মঙ্গল</td><td>৪:৫২</td><td>৪:৫৫</td><td>৬:১৩</td></tr>
+                            <tr class="row-cyan"><td>২৮</td><td>১৮ মার্চ</td><td>বুধ</td><td>৪:৫১</td><td>৪:৫৪</td><td>৬:১৩</td></tr>
+                            <tr class="row-cyan"><td>২৯</td><td>১৯ মার্চ</td><td>বৃহস্পতি</td><td>৪:৫০</td><td>৪:৫৩</td><td>৬:১৪</td></tr>
+                            <tr class="row-cyan"><td>৩০</td><td>২০ মার্চ</td><td>শুক্র</td><td>৪:৪৯</td><td>৪:৫২</td><td>৬:১৪</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-title">রোজার পরিচিতি</div>
+                <div class="info-text" style="font-size: 13px;">
+                    রোজা শব্দটি ফার্সি। এর আরবি প্রতিশব্দ হলো সাউম। শরিয়তের পরিভাষায় সুবহে সাদিক থেকে সূর্যাস্ত পর্যন্ত নিয়ত সহকারে পানাহার এবং যৌনাচার থেকে বিরত থাকাকে সাউম বা রোজা বলা হয়।
+                </div>
+                
+                <div class="info-title" style="margin-top: 10px;">রোজার নিয়ত</div>
+                <div class="info-text arabic-text">
+                    নাওয়াইতু আন আছুমা গাদাম মিন শাহরি রামাজানাল মুবারকি ফারজাল লাকা ইয়া আল্লাহু ফাতাকাব্বাল মিন্নি ইন্নাকা আনতাস সামিউল আলিম।
+                </div>
+
+                <div class="info-title" style="margin-top: 10px;">ইফতারের দোয়া</div>
+                <div class="info-text arabic-text">
+                    আল্লাহুম্মা লাকা ছুমতু ওয়া আলা রিযক্বিকা আফতারতু বিরাহমাতিকা ইয়া আরহামার রাহিমিন।
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="poster-footer">
+        <div class="if-logo">
+            ইসলামিক ফাউন্ডেশন<br>
+            <span style="font-size: 14px; color: #333; font-weight: normal;">জেলা কার্যালয়, জেলা মডেল মসজিদ, সিরাজগঞ্জ</span>
+        </div>
+        <div style="font-size: 14px; text-align: right;">
+            <div style="color: #d32f2f; font-weight: bold;">পবিত্র রমজান মাস উপলক্ষে<br>ইসলামিক ফাউন্ডেশন কর্তৃক<br>প্রকাশিত বইসমূহ বিশেষ ছাড়ে<br>বিক্রয় করা হয়।</div>
+            <strong>মোবাইল: ০১৯৫৮-২৯৫৬৯৯</strong>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('download-btn').addEventListener('click', function () {
+        // Change button text briefly to show it's working
+        const btn = this;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'প্রস্তুত হচ্ছে... (Processing)';
+        btn.style.opacity = '0.7';
+
+        // Target the poster container
+        const element = document.getElementById('poster-to-download');
+
+        // Configure PDF options
+        const opt = {
+            margin:       [5, 5, 5, 5], // top, left, bottom, right margins in mm
+            filename:     'Ramadan_Schedule_2026_Sirajganj.pdf',
+            image:        { type: 'jpeg', quality: 1 },
+            html2canvas:  { scale: 2, useCORS: true, letterRendering: true }, // Scale 2 ensures high resolution
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' } // Set to landscape so it fits better
+        };
+
+        // Generate and save the PDF
+        html2pdf().set(opt).from(element).save().then(() => {
+            // Revert button text back after download
+            btn.innerHTML = originalText;
+            btn.style.opacity = '1';
+        });
+    });
+</script>
+
+</body>
+</html>
+
