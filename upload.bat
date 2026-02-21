@@ -5,7 +5,7 @@ REM  Author    : sohag1192
 REM  Date      : %date% %time%
 REM ============================================
 
-cd /d "C:\Users\USER\Downloads\GitHub_Upload\Ramadan_Schedule"
+cd /d "C:\Users\sohag\Downloads\GitHub_Upload\Ramadan_Schedule-2026"
 
 IF NOT EXIST ".git" (
     echo Initializing new Git repository...
