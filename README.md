@@ -1,6 +1,7 @@
-
-### 📖 Repository Overview
-- **Title:** Ramadan-Schedule-2026  
+ 
+### 📖 Repository Overview   ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fsohag1192%2FRamadan-Schedule-2026&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC)
+- **Title:** Ramadan-Schedule-2026
+- **Url:** https://github.com/sohag1192/Ramadan-Schedule-2026
 - **Author:** [sohag1192](https://github.com/sohag1192)  
 - **Description:** *Premium Responsive Ramadan Schedule*  
 - **Live Demo:** sohag1192.github.io/Ramadan-Schedule-2026 [(sohag1192.github.io in Bing)](https://www.bing.com/search?q="https%3A%2F%2Fsohag1192.github.io%2FRamadan-Schedule-2026%2F")  
